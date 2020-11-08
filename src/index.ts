@@ -133,7 +133,6 @@ const objectPropAssignment = (
 
 const generateObjectLiteral = (properties: string) => `{ ${properties} }`;
 
-console.log("table", tables[0]);
 const tableDefs = tables
   .map((table) => {
     const props = table.columns.map((col) => {
