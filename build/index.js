@@ -13,7 +13,7 @@ var __assign = (this && this.__assign) || function () {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var fs_1 = __importDefault(require("fs"));
 var prettier_1 = __importDefault(require("prettier"));
 var better_sqlite3_1 = __importDefault(require("better-sqlite3"));
@@ -30,7 +30,7 @@ if (!dbPath) {
 if (!outputPath) {
     throw new Error("Error: You did not specifiy an output path. E.g. --output=/path/to/output.d.ts");
 }
-var db = new better_sqlite3_1.default(dbPath, {});
+var db = new better_sqlite3_1["default"](dbPath, {});
 var createPeopleTable = db.prepare("\n  CREATE TABLE IF NOT EXISTS people (\n    id integer PRIMARY KEY AUTOINCREMENT,\n    first_name text NOT NULL,\n    last_name text NOT NULL,\n    is_child  integer \n  )\n");
 var createItemsTable = db.prepare("\n  CREATE TABLE IF NOT EXISTS items (\n    id integer PRIMARY KEY AUTOINCREMENT,\n    name text NOT NULL,\n    owner integer,\n    FOREIGN KEY(owner) REFERENCES people(id)\n    );\n");
 createPeopleTable.run();
@@ -49,7 +49,7 @@ var tables = tableNames.map(function (_a) {
     });
     var table = {
         name: name,
-        columns: columns,
+        columns: columns
     };
     return table;
 });
@@ -94,10 +94,10 @@ var dbDef = generateTypeAssignment("Tables", generateObjectLiteral(tables
     .map(function (table) { return objectPropAssignment([table.name, table.name]); })
     .join(",")));
 var format = function (code) {
-    return prettier_1.default.format(code, {
-        parser: "typescript",
+    return prettier_1["default"].format(code, {
+        parser: "typescript"
     });
 };
 var body = tableDefs + "\n\n" + dbDef;
 var output = format(body);
-fs_1.default.writeFileSync(outputPath, output);
+fs_1["default"].writeFileSync(outputPath, output);
