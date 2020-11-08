@@ -1,5 +1,5 @@
 {
-  "name": "SQLite-type-generator",
+  "name": "sqlite-type-generator",
   "version": "1.0.0",
   "description": "Generate TypeScript types from a SQLite database.",
   "main": "build/index.js",
