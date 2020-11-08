@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fs from "fs";
 import prettier from "prettier";
 import Database from "better-sqlite3";
