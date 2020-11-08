@@ -1,22 +1,7 @@
-# tsgen
+# SQLite Type Generator
 
-Very basic typescript node starter boilerplate.
-
-Uses:
-
-- `nodemon` and `ts-node` for live development/watch mode
-- `jest` and `ts-jest` for testing
+Basic usage:
 
 ```
-# Start
-npm start
-
-# Watch
-npm run watch
-
-# Build
-npm run build
-
-# Test
-npm run test
+sqlite-type-generator --db=/path/to/database.db --output=./path/to/typedefs.d.ts
 ```
