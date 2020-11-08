@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Generate TypeScript types from a SQLite database.",
   "main": "build/index.js",
+  "bin": {
+    "sqlite-type-generator": "./build/index.js"
+  },
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
