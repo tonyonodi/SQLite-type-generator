@@ -91,4 +91,3 @@ out/
 # SQLite
 *.db
 
-build/
