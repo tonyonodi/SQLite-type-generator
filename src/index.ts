@@ -104,11 +104,19 @@ const sqlTypeToTSType = (type: string) => {
   switch (type) {
     case "text":
       return "string";
+    case "TEXT":
+      return "string";
     case "integer":
+      return "BigInt";
+    case "INTEGER":
       return "BigInt";
     case "float":
       return "number";
+    case "FLOAT":
+      return "number";
     case "blob":
+      return "Blob";
+    case "BLOB":
       return "Blob";
     default:
       throw new Error(`Unknown type: ${type}`);
