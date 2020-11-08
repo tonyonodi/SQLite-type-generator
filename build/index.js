@@ -58,11 +58,19 @@ var sqlTypeToTSType = function (type) {
     switch (type) {
         case "text":
             return "string";
+        case "TEXT":
+            return "string";
         case "integer":
+            return "BigInt";
+        case "INTEGER":
             return "BigInt";
         case "float":
             return "number";
+        case "FLOAT":
+            return "number";
         case "blob":
+            return "Blob";
+        case "BLOB":
             return "Blob";
         default:
             throw new Error("Unknown type: " + type);
@@ -77,7 +85,6 @@ var objectPropAssignment = function (_a, optional) {
     return "" + name + (optional ? "?" : "") + ": " + value;
 };
 var generateObjectLiteral = function (properties) { return "{ " + properties + " }"; };
-console.log("table", tables[0]);
 var tableDefs = tables
     .map(function (table) {
     var props = table.columns.map(function (col) {

@@ -24,35 +24,6 @@ if (!outputPath) {
 
 const db = new Database(dbPath, {});
 
-const createPeopleTable = db.prepare(`
-  CREATE TABLE IF NOT EXISTS people (
-    id integer PRIMARY KEY AUTOINCREMENT,
-    first_name text NOT NULL,
-    last_name text NOT NULL,
-    is_child  integer 
-  )
-`);
-const createItemsTable = db.prepare(`
-  CREATE TABLE IF NOT EXISTS items (
-    id integer PRIMARY KEY AUTOINCREMENT,
-    name text NOT NULL,
-    owner integer,
-    FOREIGN KEY(owner) REFERENCES people(id)
-    );
-`);
-
-createPeopleTable.run();
-createItemsTable.run();
-
-const insertPeople = db.prepare(`
-    INSERT INTO people(first_name, last_name, is_child) 
-    VALUES ('Bart', 'Simpson', 1);
-`);
-
-const selectPeople = db.prepare(`
-    SELECT * FROM people;
-`);
-
 const selectTables = db.prepare(`
   SELECT 
     name
