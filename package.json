@@ -1,0 +1,30 @@
+{
+  "name": "SQLite-type-generator",
+  "version": "1.0.0",
+  "description": "Generate TypeScript types from a SQLite database.",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "watch": "nodemon",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Tony Onodi (https://onodi.co)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/better-sqlite3": "^5.4.1",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.5",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.2",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "@types/prettier": "^2.1.5",
+    "better-sqlite3": "^7.1.1",
+    "prettier": "^2.1.2"
+  }
+}
